@@ -1,0 +1,2 @@
+gold_price_history_path: price_history.csv
+bot_url: https://rate.bot.com.tw/gold?Lang=zh-TW
