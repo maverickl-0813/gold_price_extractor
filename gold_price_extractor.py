@@ -15,7 +15,7 @@ class GoldPriceExtractor:
         self.gold_price_csv = data.get("gold_price_history_path")
         self.elements = data.get("bot_elements")
         self.prices = {'current_buy_price': 0, 'current_sell_price': 0}
-        self.price_table = pd.DataFrame()
+        self.price_table = pd.DataFrame(columns=["Date", "Buy Price", "Sell Price"])
         self.today = datetime.today()
 
     def _get_current_gold_price(self):
