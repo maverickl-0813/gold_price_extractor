@@ -45,7 +45,7 @@ class GoldPriceExtractor:
             self.price_table.loc[len(self.price_table.index)] = [self.today.strftime(date_format),
                                                                  self.prices.get("current_buy_price"),
                                                                  self.prices.get("current_sell_price")]
-            self.price_table.to_csv(self.gold_price_csv)
+            self.price_table.to_csv(self.gold_price_csv, index=False)
 
     def get_buy_price(self):
         if not self.prices['current_buy_price']:
@@ -77,6 +77,7 @@ class GoldPriceExtractor:
                                  textposition="top center",
                                  hovertemplate=kwargs.get("sell_hover_template")))
         fig.update_layout(title=title, xaxis_title="日期", yaxis_title="價格 (新台幣)")
+        fig.update_xaxes(rangebreaks=[dict(bounds=['sat', 'mon'])])
         fig.show()
 
     def show_price_figure(self):
